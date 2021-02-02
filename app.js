@@ -7,7 +7,7 @@ var express           = require("express"),
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://admin:Jagdish@1285@cluster0.d6b2r.mongodb.net/<dbname>?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://admin:Jagdish@1285@cluster0.d6b2r.mongodb.net/blogapp?retryWrites=true&w=majority");
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
