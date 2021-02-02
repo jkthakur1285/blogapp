@@ -1,0 +1,23 @@
+<%-include("partials/header")%>
+
+<div class="ui main text">
+<div class="ui huge header"></div>
+<div class="ui huge header">Welcome to Blog page.</div>
+    <div class="ui grid segment">
+<% blogs.forEach(function(blog){%>
+<div class="four wide column">
+<h2><%=blog.title%></h2>
+<img class="ui centered rounded image"src="<%=blog.image%>" >
+    <div class="content">
+<p><%=blog.body.substring(0, 15)%>...</p>
+<p><%=blog.created.toDateString()%></p>
+<p> 
+    <a class="ui violet inverted button" href="/blogs/<%=blog._id%>">more info</a>
+    </p>
+</div>
+        </div>
+<%})%>
+</div>
+    </div>
+
+<%-include("partials/footer")%>
