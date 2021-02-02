@@ -7,7 +7,17 @@ var express           = require("express"),
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://admin:Jagdish@1285@cluster0.d6b2r.mongodb.net/blogapp?retryWrites=true&w=majority");
+
+mongoose.connect("mongodb+srv://admin:1234@cluster0.d6b2r.mongodb.net/blogapp?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  }).then(res=>{
+          console.log("DB Connected!")
+  }).catch(err => {
+    console.log(Error, err.message);
+  })
+
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -85,9 +95,9 @@ app.delete("/blogs/:id",function(req, res){
     });
 })
 
+const PORT = process.env.PORT||1300;
 
-
-app.listen(process.env.PORT,function(err){
+app.listen(PORT,function(err){
     if(err)console.log(err);
-    else console.log("server is started at port "+process.env.PORT);
+    else console.log("server is started at port "+PORT);
 });
