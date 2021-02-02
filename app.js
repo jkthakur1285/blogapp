@@ -87,7 +87,7 @@ app.delete("/blogs/:id",function(req, res){
 
 
 
-app.listen(1300,function(err){
+app.listen(prosess.env.PORT,function(err){
     if(err)console.log(err);
-    else console.log("server is started at port 1300");
+    else console.log("server is started at port "+prosess.env.PORT);
 });
